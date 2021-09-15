@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula General</title>
+</head>
+
+<body>
+   
+    <h1>Formula General</h1>
+    <p>
+        Introduzca los valores
+    </p>
+    <input id="a"><br>
+    <input id="b"><br>
+    <input id="c"><br>
+    <button type="button" onclick="calcular()">Calcular</button>
+    <p id="X1"></p>
+    <p id="X2"></p>
+    <script>
+        function calcular() {
+            var n1, n2, n3, x1, x2, text;
+
+            n1 = document.getElementById("a").value;
+            n2 = document.getElementById("b").value;
+            n3 = document.getElementById("c").value;
+
+            if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+                text = "Es necesario introducir los números";
+                alert("Solo se aceptan caracteres numericos");
+                return false;
+            } else {
+                x1 = ((-n2) + Math.sqrt(Math.pow(n2, 2) - (4 * n1 * n3))) / (2 * n1);
+                x2 = ((-n2) - Math.sqrt(Math.pow(n2, 2) - (4 * n1 * n3))) / (2 * n1);
+                text = "x1: " + x1;
+                text = "x2: " + x2;
+            }
+
+            document.getElementById("X1").innerHTML = "<h3>Resultados\n</h3><strong>x1: </strong>" + x1;
+            document.getElementById("X2").innerHTML = "<strong>x2: </strong> " + x2;
+        }
+
+
+
+    </script>
+    <form action="index.html"> <input type="submit" value="Regresar al Inicio" /> </form>
+</body>
+
+</html>

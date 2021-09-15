@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sucesión de fibonacci</title>
+</head>
+<body>
+    <script>
+	
+	function Serie(form){
+		var numero = form.numterminos.value;
+		
+		if (numero == "" || isNaN(numero)) {
+			alert("Tienes que ingresar un número");
+			return false;
+		}
+		
+		let n1 = 0, n2 = 1, siguienteTermino;
+		
+		var crearDiv = document.createElement("div");
+		crearDiv.innerHTML = "<h3>---------- Resultados con el números de términos " + numero + "----------</h3> <br></h3>";
+		document.body.appendChild(crearDiv);
+
+		for (let i = 1; i <= numero; i++) {
+		
+			var crearDiv = document.createElement("div");
+			crearDiv.innerHTML = "<h3>" + n1 + "</h3>";
+			document.body.appendChild(crearDiv);
+			
+			console.log(n1);
+			siguienteTermino = n1 + n2;
+			n1 = n2;
+			n2 = siguienteTermino;
+		}
+	}
+
+	</script>
+	
+	<h2>Número de términos para resolver la serie de Fibonacci:</h2>
+	<form action="" method="get"><br>
+	<input type="text" name="numterminos" value=""><br>
+	<br>
+	<input type="button" name="button" value="Resolver" onclick="Serie(this.form)">
+	</form>
+	<br>
+	<form action="index.html"> <input type="submit" value="Regresar al Inicio" /> </form>
+</body>
+</html>
